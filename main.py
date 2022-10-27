@@ -9,11 +9,13 @@ parser = Parser()
 
 @app.get("/")
 async def read_main():
+    """Standard fastapi RESTapi endpoint, used for testing the connection from a client to the server."""
     return {"msg": "Hello World"}
 
 
 @app.websocket_route("/ws")
 async def websocket(websocket: WebSocket):
+    """Websocket route used for testing connection from a client to the server."""
     await websocket.accept()
     await websocket.send_json({"msg": "Hello WebSocket"})
     await websocket.close()
@@ -21,6 +23,8 @@ async def websocket(websocket: WebSocket):
 
 @app.websocket_route("/evaluate")
 async def websocket(websocket: WebSocket):
+    """"Websocker route used for evaluating the client input mathematical expression
+     and computing a result for it."""
     await websocket.accept()
     expression = await websocket.receive_text()
     parser.set_expression(expression)
