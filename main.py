@@ -14,7 +14,7 @@ async def read_main():
 
 
 @app.websocket_route("/ws")
-async def websocket(websocket: WebSocket):
+async def websocket_connect(websocket: WebSocket):
     """Websocket route used for testing connection from a client to the server."""
     await websocket.accept()
     await websocket.send_json({"msg": "Hello WebSocket"})
@@ -22,7 +22,7 @@ async def websocket(websocket: WebSocket):
 
 
 @app.websocket_route("/evaluate")
-async def websocket(websocket: WebSocket):
+async def websocket_evaluate(websocket: WebSocket):
     """"Websocker route used for evaluating the client input mathematical expression
      and computing a result for it."""
     await websocket.accept()
