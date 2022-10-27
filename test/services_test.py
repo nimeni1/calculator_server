@@ -19,3 +19,10 @@ def mock_parser(request, monkeypatch):
 def test_parser_evaluate(mock_parser, expected_result):
     actual_result = mock_parser.evaluate_expression()
     assert actual_result == expected_result
+
+
+@pytest.mark.parametrize("mock_parser, expected_result", [("3+1", True)],
+                         indirect=["mock_parser"])
+def test_parser_check(mock_parser, expected_result):
+    actual_result = mock_parser.check_expression()
+    assert actual_result == expected_result
