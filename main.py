@@ -2,7 +2,6 @@ from fastapi import FastAPI, WebSocket
 
 from services import Parser
 
-# from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 parser = Parser()
