@@ -12,7 +12,15 @@ cekprtk python package which is a very efficient Cypthon wrapper for ExprTK C++ 
 
 The websocket server can be run directly on your computer, given that you have all the dependencies in requirements.txt,
 in a virtual environment, but also in a Docker container. To run it inside Docker, use command 
-    docker-compose up --build.
+```
+docker-compose up --build.
+```
+
+To do it on your local machine:
+
+```
+uvicorn main:app --reload
+```
 
 ### Way of working
 
